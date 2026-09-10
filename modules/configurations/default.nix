@@ -47,25 +47,17 @@ let
     extraModules = [ inputs.home-manager.nixosModules.home-manager ];
   } config.configurations.nixos;
 
-  darwinConfigurations = mkSystems {
-    builder = inputs.nix-darwin.lib.darwinSystem;
-    extraModules = [
-      inputs.home-manager.darwinModules.home-manager
-      { nixpkgs.hostPlatform = lib.mkDefault "aarch64-darwin"; }
-    ];
-  } config.configurations.darwin;
 in
 {
   options.configurations = {
     nixos = mkConfigurationsOption "NixOS";
-    darwin = mkConfigurationsOption "nix-darwin";
   };
 
   config.flake = {
-    inherit nixosConfigurations darwinConfigurations;
+    inherit nixosConfigurations;
 
     checks = lib.mkMerge (
-      mkChecks "nixos" nixosConfigurations ++ mkChecks "darwin" darwinConfigurations
+      mkChecks "nixos" nixosConfigurations 
     );
   };
 }
