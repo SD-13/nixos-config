@@ -41,9 +41,10 @@ in
       systemd.enable = false;
       package = null;
       portalPackage = null;
+      configType = "lua";
 
       settings = {
-        exec-once = "noctalia";
+        # exec-once = "noctalia";
         decoration = {
           shadow_offset = "0 5";
           "col.shadow" = "rgba(00000099)";
