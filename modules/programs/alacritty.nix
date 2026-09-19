@@ -56,11 +56,7 @@
           ];
 
           font = {
-            size =
-              if pkgs.stdenv.hostPlatform.isDarwin then
-                config.profile.appearance.fonts.terminalSize.darwin
-              else
-                config.profile.appearance.fonts.terminalSize.linux;
+            size = config.profile.appearance.fonts.terminalSize.linux;
             normal = {
               inherit (config.profile.appearance.fonts.monospace) family;
             };

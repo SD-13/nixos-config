@@ -3,7 +3,6 @@ let
   inherit (config.flake.modules)
     generic
     nixos
-    darwin
     homeManager
     ;
   commonImports = [
@@ -17,6 +16,7 @@ in
 {
   flake.modules.generic.homeManagerIntegration = {
     home-manager = {
+      backupFileExtension = "backup";
       useGlobalPkgs = true;
       useUserPackages = true;
       sharedModules = [ homeManager.base ];
@@ -30,48 +30,32 @@ in
       nixos.boot
       nixos.locale
       nixos.networking
-      nixos.podman
       nixos.users
       nixos.zsh
-    ];
-  };
-
-  flake.modules.darwin.base = {
-    imports = commonImports ++ [
-      darwin.brave
-      darwin.fonts
-      darwin.keyboard
-      darwin.mos
-      darwin.systemPreferences
-      darwin.users
     ];
   };
 
   flake.modules.homeManager.base = {
     imports = [
       generic.profile
-      homeManager.alacritty
+      # homeManager.alacritty
       homeManager.atuin
       homeManager.aws
       homeManager.bat
-      homeManager.brave
       homeManager.btop
       homeManager.catppuccin
       homeManager.eza
       homeManager.fastfetch
       homeManager.fonts
+      homeManager.foot
       homeManager.fzf
       homeManager.git
       homeManager.go
       homeManager.gpg
       homeManager.k8s
-      homeManager.mos
       homeManager.neovim
       homeManager.opencode
-      homeManager.opentofu
       homeManager.packages
-      homeManager.podman
-      homeManager.scripts
       homeManager.starship
       homeManager.tmux
       homeManager.xdg

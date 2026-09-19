@@ -11,7 +11,7 @@
       programs.neovim = {
         enable = true;
         defaultEditor = true;
-        sideloadInitLua = true;
+        # sideloadInitLua = true;
         vimAlias = true;
         withNodeJs = true;
         withPython3 = true;
@@ -46,6 +46,7 @@
         "nvim" = {
           source = ./lazyvim;
           recursive = true;
+          force = true;
         };
       };
 

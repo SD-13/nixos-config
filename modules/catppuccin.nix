@@ -10,11 +10,11 @@
     let
       inherit (config.profile.appearance) catppuccin;
 
-      catppuccinSources = inputs.catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.overrideScope (
-        _: _: {
-          whiskers = pkgs.catppuccin-whiskers;
-        }
-      );
+      # catppuccinSources = inputs.catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.overrideScope (
+      #   _: _: {
+      #     whiskers = pkgs.catppuccin-whiskers;
+      #   }
+      # );
       palette = lib.importJSON "${inputs.catppuccin-palette}/palette.json";
       flavorColors = palette.${catppuccin.flavor}.colors;
     in
@@ -28,9 +28,9 @@
 
       catppuccin = {
         enable = true;
-        autoEnable = true;
+        # autoEnable = true;
         inherit (config.profile.appearance.catppuccin) flavor accent;
-        sources = catppuccinSources;
+        # sources = catppuccinSources;
       };
     };
 }

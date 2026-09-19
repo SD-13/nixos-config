@@ -10,11 +10,11 @@ in
       inputs.nixos-hardware.nixosModules.common-pc-ssd
       ./_hardware.nix
       nixos.base
-      nixos.niri
+      nixos.hyprland
     ];
 
-    primaryUser = "nabokikh";
-    system.stateVersion = "26.05";
+    primaryUser = "jack";
+    system.stateVersion = "25.11";
 
     services.thermald.enable = true;
   };

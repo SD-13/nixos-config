@@ -8,7 +8,6 @@
       programs.fzf = {
         enable = true;
 
-        historyWidget.command = "";
 
         defaultOptions = [
           "--bind '?:toggle-preview'"
