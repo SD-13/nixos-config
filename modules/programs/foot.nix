@@ -5,7 +5,7 @@
 
       settings = {
         main = {
-          font = "DejaVu Sans Mono:size=18";
+          font = "FantasqueSansM Nerd Font:size=16";
           font-size-adjustment = 1;
         };
 
