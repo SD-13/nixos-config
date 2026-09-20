@@ -32,6 +32,8 @@ in
       nixos.networking
       nixos.users
       nixos.zsh
+      nixos.librewolf
+      nixos.desktopApps
     ];
   };
 
@@ -60,6 +62,8 @@ in
       homeManager.tmux
       homeManager.xdg
       homeManager.zsh
+      homeManager.librewolf
+      homeManager.desktopApps
     ];
   };
 }
