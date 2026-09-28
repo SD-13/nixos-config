@@ -7,9 +7,23 @@
     programs.librewolf = {
       enable = true;
       settings = {
+        "webgl.disabled" = false;
+        "privacy.resistFingerprinting" = false;
         "privacy.clearOnShutdown.cookies" = false;
         "privacy.clearOnShutdown.history" = false;
         "network.cookie.lifetimePolicy" = 0;
+
+# Define default fonts for different styles
+        "font.name.sans-serif.x-western" = "Ubuntu Sans";
+        "font.name.serif.x-western" = "Ubuntu";
+        "font.name.monospace.x-western" = "UbuntuMono Nerd Font";
+
+# Force fallback assignments
+        "font.default.x-western" = "sans-serif";
+
+# Set base font sizes (in pixels)
+        "font.size.variable.x-western" = 14;
+        "font.size.monospace.x-western" = 12;
       };
     };
 

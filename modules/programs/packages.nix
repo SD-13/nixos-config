@@ -23,6 +23,8 @@
           gnumake
           unzip
           wl-clipboard
+          slack
+          zoom-us
         ];
     };
 }

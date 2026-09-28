@@ -12,6 +12,9 @@
         pavucontrol
         seahorse
         showtime
+        noctalia
+        hyprlauncher
+        walker
       ];
 
       dconf.settings = {

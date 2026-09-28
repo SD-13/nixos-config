@@ -3,19 +3,18 @@ let
   inherit (config.flake.modules) nixos;
 in
 {
-  configurations.nixos.xps.module = {
+  configurations.nixos.trash.module = {
     imports = [
-      inputs.nixos-hardware.nixosModules.common-cpu-intel
-      inputs.nixos-hardware.nixosModules.common-pc-laptop
+      inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
       inputs.nixos-hardware.nixosModules.common-pc-ssd
+      inputs.nixos-hardware.nixosModules.common-gpu-amd
       ./_hardware.nix
       nixos.base
-      nixos.hyprland
+      nixos.niri
+      nixos.gaming
     ];
 
     primaryUser = "jack";
     system.stateVersion = "26.05";
-
-    services.thermald.enable = true;
   };
 }
