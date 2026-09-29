@@ -33,6 +33,7 @@ in
       nixos.users
       nixos.zsh
       nixos.librewolf
+      nixos.brave
       nixos.desktopApps
     ];
   };
@@ -63,6 +64,7 @@ in
       homeManager.xdg
       homeManager.zsh
       homeManager.librewolf
+      homeManager.brave
       homeManager.desktopApps
     ];
   };

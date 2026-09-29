@@ -6,11 +6,15 @@
   {
     programs.librewolf = {
       enable = true;
+      policies = {
+        Preferences = {
+          "privacy.clearOnShutdown.cookies" = false;
+          "privacy.clearOnShutdown.history" = false;
+        };
+      };
       settings = {
         "webgl.disabled" = false;
         "privacy.resistFingerprinting" = false;
-        "privacy.clearOnShutdown.cookies" = false;
-        "privacy.clearOnShutdown.history" = false;
         "network.cookie.lifetimePolicy" = 0;
 
 # Define default fonts for different styles

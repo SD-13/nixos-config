@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   flake.modules.homeManager.noctalia =
     {
@@ -18,6 +19,11 @@
       tesseract = pkgs.tesseract.override { enableLanguages = ocrLanguages; };
     in
     {
+
+      imports = [
+        inputs.noctalia.homeModules.default
+      ];
+
       home.packages = [ pkgs.gpu-screen-recorder ];
 
       programs.noctalia = {

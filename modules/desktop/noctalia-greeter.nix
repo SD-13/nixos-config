@@ -1,60 +1,66 @@
 { inputs, ... }:
 {
   flake.modules.nixos.noctaliaGreeter =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
-    let
-      inherit (config.profile.appearance) catppuccin cursorTheme;
-      inherit (config.profile.appearance.fonts) ui;
+  {
+    config,
+    lib,
+    pkgs,
+    ...
+  }:
+  let
+    inherit (config.profile.appearance) catppuccin cursorTheme;
+  inherit (config.profile.appearance.fonts) ui;
 
-      palette = lib.importJSON "${inputs.catppuccin-palette}/palette.json";
-      color = name: palette.${catppuccin.flavor}.colors.${name}.hex;
-    in
-    {
-      fonts.packages = [ ui.package ];
+  palette = lib.importJSON "${inputs.catppuccin-palette}/palette.json";
+  color = name: palette.${catppuccin.flavor}.colors.${name}.hex;
 
-      services.displayManager.noctalia-greeter = {
-        enable = true;
+  in
+  {
 
-        cursorTheme = { inherit (cursorTheme) name package; };
+    imports = [
+      inputs.noctalia-greeter.nixosModules.default
+    ];
 
-        settings = {
-          appearance = {
-            scheme = "Synced";
-            font_family = ui.family;
-            hide_logo = true;
+    fonts.packages = [ ui.package ];
 
-            palette = {
-              primary = color catppuccin.accent;
-              on_primary = color "base";
-              secondary = color "pink";
-              on_secondary = color "base";
-              tertiary = color "mauve";
-              on_tertiary = color "base";
-              error = color "red";
-              on_error = color "base";
-              surface = color "base";
-              on_surface = color "text";
-              surface_variant = color "surface0";
-              on_surface_variant = color "subtext0";
-              outline = color "overlay0";
-              shadow = color "crust";
-              hover = color "surface1";
-              on_hover = color "text";
-            };
+    services.displayManager.noctalia-greeter = {
+      enable = true;
 
-            wallpaper = {
-              path = config.profile.wallpaper;
-              fill_mode = "crop";
-            };
+      cursorTheme.package = cursorTheme.package;
+
+      settings = {
+        appearance = {
+          scheme = "Synced";
+          font_family = ui.family;
+          hide_logo = true;
+
+          palette = {
+            primary = color catppuccin.accent;
+            on_primary = color "base";
+            secondary = color "pink";
+            on_secondary = color "base";
+            tertiary = color "mauve";
+            on_tertiary = color "base";
+            error = color "red";
+            on_error = color "base";
+            surface = color "base";
+            on_surface = color "text";
+            surface_variant = color "surface0";
+            on_surface_variant = color "subtext0";
+            outline = color "overlay0";
+            shadow = color "crust";
+            hover = color "surface1";
+            on_hover = color "text";
           };
 
-          cursor.size = cursorTheme.size;
+          wallpaper = {
+            path = config.profile.wallpaper;
+            fill_mode = "crop";
+          };
         };
+
+        cursor.size = cursorTheme.size;
       };
     };
+  };
 }
