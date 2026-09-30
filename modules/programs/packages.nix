@@ -17,6 +17,7 @@
           python3
           ripgrep
           telegram-desktop
+          alarm-clock-applet
         ]
         ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
           gcc
