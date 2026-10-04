@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
+    nixpkgs-librewolf.url = "github:nixos/nixpkgs/ac62194c3917d5f474c1a844b6fd6da2db95077d";
+
     # noctalia-greeter = {
     #   url = "github:noctalia-dev/noctalia-greeter/v1.5.0";
     #   inputs.nixpkgs.follows = "nixpkgs";
