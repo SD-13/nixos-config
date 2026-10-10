@@ -19,6 +19,11 @@
         telegram-desktop
         tor-browser
         alarm-clock-applet
+        playwright
+        kubernetes-helm
+        k9s
+        devenv
+        antigravity
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
     gcc

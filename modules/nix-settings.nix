@@ -3,6 +3,11 @@
   flake.modules.generic.nixSettings = {
     nixpkgs.config.allowUnfree = true;
 
+    # nixpkgs.config.permittedInsecurePackages = [
+    #   "nodejs-slim-20.20.2"
+    #   "nodejs-20.20.2"
+    # ];
+
     nix = {
       channel.enable = false;
       nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
@@ -13,6 +18,10 @@
         experimental-features = [
           "nix-command"
             "flakes"
+        ];
+        trusted-users = [
+          "root"
+            "jack"
         ];
       };
 

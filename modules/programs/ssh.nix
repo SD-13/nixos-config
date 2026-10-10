@@ -15,10 +15,10 @@
     programs.ssh = {
       extraConfig = ''
         Host work
-        Hostname 192.168.0.100
-        Port 22
-        User jack
-        '';
+          Hostname 192.168.0.100
+          Port 22
+          User jack
+      '';
     };
   };
 }

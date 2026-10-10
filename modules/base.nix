@@ -35,6 +35,7 @@ in
       nixos.librewolf
       nixos.brave
       nixos.desktopApps
+      nixos.k3s
     ];
   };
 
@@ -66,6 +67,7 @@ in
       homeManager.librewolf
       homeManager.brave
       homeManager.desktopApps
+      homeManager.vscode
     ];
   };
 }
