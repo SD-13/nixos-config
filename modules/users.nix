@@ -1,32 +1,23 @@
 {
   flake.modules.nixos.users =
-    {
-      config,
-      ...
-    }:
-    {
-      users.users.${config.primaryUser} = {
-        description = config.profile.fullName;
-        extraGroups = [
-          "networkmanager"
+  {
+    config,
+    ...
+  }:
+  {
+    users.users.${config.primaryUser} = {
+      description = config.profile.fullName;
+      extraGroups = [
+        "networkmanager"
           "video"
           "wheel"
-        ];
-        isNormalUser = true;
-      };
-
-      security.sudo.wheelNeedsPassword = false;
+      ];
+      isNormalUser = true;
     };
+    virtualisation.virtualbox.host.enable = true;
+    users.extraGroups.vboxusers.members = [ "jack" ];
 
-  flake.modules.darwin.users =
-    { config, ... }:
-    {
-      users.users.${config.primaryUser} = {
-        home = "/Users/${config.primaryUser}";
-      };
+    security.sudo.wheelNeedsPassword = false;
+  };
 
-      security.sudo.extraConfig = "${config.primaryUser}    ALL = (ALL) NOPASSWD: ALL";
-
-      system.primaryUser = config.primaryUser;
-    };
 }

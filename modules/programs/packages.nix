@@ -24,6 +24,8 @@
         k9s
         devenv
         antigravity
+        qbittorrent
+        vim
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
     gcc
