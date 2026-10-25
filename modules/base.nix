@@ -34,6 +34,7 @@ in
       nixos.zsh
       nixos.librewolf
       nixos.brave
+      nixos.navidrome
       nixos.desktopApps
       nixos.k3s
     ];
